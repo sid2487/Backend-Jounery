@@ -1,4 +1,4 @@
-// const fs = require('fs');
+const fs = require('fs');
 
 //  This adds new content without deleting existing data.
 fs.appendFile('example.txt', '\nNew line added!', (err) => {
