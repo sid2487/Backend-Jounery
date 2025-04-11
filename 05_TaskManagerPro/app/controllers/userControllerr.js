@@ -8,7 +8,7 @@ export const registerUser = async (req, res) => {
 
         const userExist = await User.findOne({ email });
         if (userExist) {
-            resizeBy.status(400);
+            res.status(400);
             throw new Error("User already exist");
         }
 
