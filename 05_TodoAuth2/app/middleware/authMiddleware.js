@@ -12,4 +12,12 @@ export const protect = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET); // Verifies the token using the secret key and If valid, it gives us the payload (e.g., { id: userId, iat, exp }).
     req.user = await User.findById(decoded.id).select("-password");
     next(); 
-}
+}   
+
+
+
+
+
+
+
+
