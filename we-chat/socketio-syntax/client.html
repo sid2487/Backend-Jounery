@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script>
+        const socket = io("http://localhost:8080"); // 1️⃣ Connect to server
+
+        socket.on("connect", () => { // 2️⃣ On successful connection
+            console.log("Connected");
+            socket.emit("message", "Hello server"); // 3️⃣ Send event to server
+        });
+
+        socket.on("reply", (data) => { // 4️⃣ Handle reply from server
+            console.log(`Server says: ${data}`);
+        });
+
+        socket.on("disconnect", () => { // 5️⃣ On disconnect
+            console.log("Disconnected");
+        });
+    </script>
+
+</body>
+</html>
